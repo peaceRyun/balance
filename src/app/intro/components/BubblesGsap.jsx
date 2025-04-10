@@ -46,7 +46,7 @@ function BubblesGSAP() {
         const initialBubbles = [
             {
                 id: 1,
-                radius: width * 0.6, // 화면 너비의 60%
+                radius: width * 0.4, // 화면 너비의 60%
                 color: '#5D68F0',
                 x: width * 0.25,
                 y: -width * 0.6,
@@ -57,7 +57,7 @@ function BubblesGSAP() {
             },
             {
                 id: 2,
-                radius: width * 0.55, // 화면 너비의 55%
+                radius: width * 0.3, // 화면 너비의 55%
                 color: '#4FC1E4',
                 x: width * 0.75,
                 y: -width * 0.55,
