@@ -1,10 +1,10 @@
-import { IntroContainer } from './style';
+import { IntroContainer, IntroH2 } from './style';
 
 const IntroText = () => {
     return (
         <>
             <IntroContainer>
-                <h2>Bringing Stories to Life</h2>
+                <IntroH2>Bringing Stories to Life</IntroH2>
             </IntroContainer>
         </>
     );
