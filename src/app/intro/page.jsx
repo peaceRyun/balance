@@ -1,11 +1,9 @@
-import MatterAni from './components/MatterAni';
-import BubblesGSAP from './components/BubblesGsap';
+import IntroText from './components/introtext/IntroText';
 
 const IntroPage = () => {
     return (
         <>
-            <BubblesGSAP />
-            <MatterAni />
+            <IntroText />
         </>
     );
 };

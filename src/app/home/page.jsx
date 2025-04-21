@@ -1,9 +1,14 @@
+'use client';
+
 import IntroPage from '../intro/page';
+import { MainContainer } from './style';
 
 const HomePage = () => {
     return (
         <>
-            <IntroPage />
+            <MainContainer>
+                <IntroPage />
+            </MainContainer>
         </>
     );
 };
