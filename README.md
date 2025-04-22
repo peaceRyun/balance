@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+---
+## 사용한 기술 스택
+### 프레임워크
+next 15.3
+
+### 패키지 관리자
+- pnpm
+
+### 라이브러리 설치 근황
+- 기본: tailwind, eslint, 
+- (25.04.10) gsap, styled-component => 관련 공식 문서 => 
+- (25.04.11) matter-js => 관련 공식 문서 => 
+- (25.04.22) reset-css, normalize-css => 관련 공식 문서 => https://meyerweb.com/eric/tools/css/reset/
