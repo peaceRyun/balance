@@ -5,7 +5,7 @@ const getVariantTitleStyles = (variant) => {
         case 'intro':
             return `
                 font-family: var(--my-poppins-font);
-                font-size: 250px;
+                font-size: 180px;
                 text-align: left;
                 line-height: 0.8em;
                 letter-spacing: -0.09em;
@@ -17,6 +17,7 @@ const getVariantTitleStyles = (variant) => {
 export const SecCont = styled.section`
     position: ${(props) => (props.$position ? props.$position : 'relative')};
     width: 100%;
+    height: 100%;
     padding: ${(props) => props.$padding};
 `;
 

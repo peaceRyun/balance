@@ -15,11 +15,11 @@ const IntroText = () => {
                         <StyledH2 variant='intro' $fontWeight='700'>
                             and
                         </StyledH2>
-                        <DivWrap $width='350px' $height='200px'>
+                        <DivWrap $width='350px' $height='160px'>
                             <StyledImg src='./home/intro/seesaw-unscreen.gif'></StyledImg>
                         </DivWrap>
                         <StyledH2 variant='intro' $fontWeight='100'>
-                            Growth
+                            Performance
                         </StyledH2>
                     </DivWrap>
                     <DivWrap $display='flex' $gap='15px' $padding='30px 0 0 '>
