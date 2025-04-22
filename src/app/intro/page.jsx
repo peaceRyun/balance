@@ -1,13 +1,13 @@
-import GrayBanner from './components/graybanner/GrayBanner';
-import IntroText from './components/introtext/IntroText';
+import IntroText from "./components/introtext/IntroText";
+import SubtitleBanner from "./components/subtitlebanner/SubtitleBanner";
 
 const IntroPage = () => {
-    return (
-        <>
-            <IntroText />
-            <GrayBanner />
-        </>
-    );
+  return (
+    <>
+      <IntroText />
+      <SubtitleBanner />
+    </>
+  );
 };
 
 export default IntroPage;
