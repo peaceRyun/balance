@@ -1,35 +1,37 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@import "reset-css";
+@import "normalize.css";
 
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --my-poppins-font: 'Poppins', sans-serif;
-    --my-pretendard-font: 'Pretendard Variable', sans-serif;
+  --background: #ffffff;
+  --foreground: #171717;
+  --my-poppins-font: "Poppins", sans-serif;
+  --my-pretendard-font: "Pretendard Variable", sans-serif;
 }
 
 @theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--my-pretendard-font), sans-serif;
-    font-weight: 400;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--my-pretendard-font), sans-serif;
+  font-weight: 400;
 }
 
 .font-poppins {
-    font-family: var(--my-poppins-font);
+  font-family: var(--my-poppins-font);
 }
 
 .font-pretendard {
-    font-family: var(--my-pretendard-font);
+  font-family: var(--my-pretendard-font);
 }
