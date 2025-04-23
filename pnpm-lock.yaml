@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@types/scrollmagic':
+        specifier: ^2.0.8
+        version: 2.0.8
       framer-motion:
         specifier: ^12.7.4
         version: 12.7.4(@emotion/is-prop-valid@1.2.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -35,6 +38,9 @@ importers:
       scrollmagic:
         specifier: ^2.0.8
         version: 2.0.8
+      scrollmagic-plugin-gsap:
+        specifier: ^1.0.4
+        version: 1.0.4
       styled-components:
         specifier: ^6.1.17
         version: 6.1.17(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -434,11 +440,17 @@ packages:
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
 
+  '@types/gsap@1.20.2':
+    resolution: {integrity: sha512-i9nUsnS32+VTgoX5IlaCYukJpCoB3c6h3bZvO67aIRdb3z8NFTWgeUDpQutLyb1ujowp6nw37qLQNvEowqq8yw==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  '@types/scrollmagic@2.0.8':
+    resolution: {integrity: sha512-hbWfZlV2v5XaPCGdVXPVReNdtzO81C0Lfpip0scC/iDec3VNMtmQsvYMsZfIEPRC5b5+M2leJIarxlVUgviCNQ==}
 
   '@types/stylis@4.2.5':
     resolution: {integrity: sha512-1Xve+NMN7FWjY14vLoY5tL3BVEQ/n42YLwaqJIPYhotZ9uBHt87VceMwWQpzmdEt2TNXIorIFG+YeCUUW7RInw==}
@@ -1588,6 +1600,9 @@ packages:
   scheduler@0.26.0:
     resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
 
+  scrollmagic-plugin-gsap@1.0.4:
+    resolution: {integrity: sha512-OLeo4J6V9wvnRP03/LJkgb5qkHIOzSckWX3hJ+Hh3uPJIfwttxCRRr4+w16WHPCQwZidUA9eEbtKeR7kyjdHVg==}
+
   scrollmagic@2.0.8:
     resolution: {integrity: sha512-UYXEGBPVLziovXl3FjHGkY9c4UXKUKopIdXwWR2JapWxCo0U345wYegi7rcsv5vHf/ktc1bSNWy4QRFiV+Yccw==}
     engines: {node: '>=0.10.x'}
@@ -2121,9 +2136,13 @@ snapshots:
 
   '@types/estree@1.0.7': {}
 
+  '@types/gsap@1.20.2': {}
+
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
+
+  '@types/scrollmagic@2.0.8': {}
 
   '@types/stylis@4.2.5': {}
 
@@ -3446,6 +3465,10 @@ snapshots:
       is-regex: 1.2.1
 
   scheduler@0.26.0: {}
+
+  scrollmagic-plugin-gsap@1.0.4:
+    dependencies:
+      '@types/gsap': 1.20.2
 
   scrollmagic@2.0.8: {}
 

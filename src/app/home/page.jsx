@@ -1,16 +1,20 @@
-"use client";
+'use client';
 
-import IntroPage from "../intro/page";
-import { MainContainer } from "./style";
+import DisplayPortfolioSec from './components/displayportfoliosec/DisplayPortfolioSec';
+import IntroSec from './components/introsec/IntroSec';
+import SubtitleBanner from './components/subtitlebanner/SubtitleBanner';
+import { MainContainer } from './style';
 
 const HomePage = () => {
-  return (
-    <>
-      <MainContainer>
-        <IntroPage />
-      </MainContainer>
-    </>
-  );
+    return (
+        <>
+            <MainContainer>
+                <IntroSec />
+                <SubtitleBanner />
+                <DisplayPortfolioSec />
+            </MainContainer>
+        </>
+    );
 };
 
 export default HomePage;

@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@types/scrollmagic": "^2.0.8",
     "framer-motion": "^12.7.4",
     "gsap": "^3.12.7",
     "matter-js": "^0.20.0",
@@ -19,6 +20,7 @@
     "react-dom": "^19.0.0",
     "reset-css": "^5.0.2",
     "scrollmagic": "^2.0.8",
+    "scrollmagic-plugin-gsap": "^1.0.4",
     "styled-components": "^6.1.17",
     "swiper": "^11.2.6"
   },
