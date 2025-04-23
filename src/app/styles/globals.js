@@ -67,7 +67,7 @@ export const StyledSpan = styled.span`
     font-family: var(--my-poppins-font);
     font-weight: ${(props) => props.$fontWeight};
     font-size: ${(props) => props.$fontSize};
-    color: #2c3e50;
+    color: ${(props) => props.$color};
 `;
 
 export const StyledImg = styled.img`
