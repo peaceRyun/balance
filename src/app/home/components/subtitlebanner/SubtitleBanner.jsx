@@ -1,43 +1,48 @@
 'use client';
 
 import { DivWrap, SecCont } from '@/app/styles/globals';
-import { WebkitSpan } from './style';
-import { useEffect } from 'react';
+import { WebkitSpan, HighlightedKeyword } from './style'; // 스타일 import
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SubtitleBanner = () => {
-    useEffect(() => {
-        const pinWrap = document.querySelector('.textBox'); // DivWrap에 클래스 추가
-        const textObject = document.querySelector('.webkitSpan');
-        gsap.to(pinWrap, {
-            scrollTrigger: {
-                trigger: pinWrap,
-                start: 'top top', // viewport의 top이 trigger 요소의 top에 닿았을 때 시작
-                end: '+=200vh', // trigger 요소의 시작점에서 200vh만큼 스크롤했을 때 종료 (300vh - 100vh)
-                pin: true,
-                scrub: 0.5, // 부드러운 스크러빙 효과 (선택 사항)
-            },
-        });
+    const pinWrapRef = useRef(null);
+    const textObjectRef = useRef(null);
 
-        gsap.fromTo(
-            textObject,
-            { 'background-size': '0% 100%' },
-            {
-                'background-size': '100% 100%',
+    useEffect(() => {
+        const pinWrap = pinWrapRef.current;
+        const textObject = textObjectRef.current;
+
+        if (pinWrap && textObject) {
+            // 배경색 채우기 애니메이션 (흰색)
+            gsap.to(textObject, {
+                backgroundSize: '100% 100%',
                 scrollTrigger: {
-                    trigger: '.textBox',
-                    pinnedContainer: '.textBox',
-                    start: '0% 60%',
-                    markers: true,
+                    trigger: pinWrap,
+                    start: 'top top',
+                    end: '+=1000vh',
+                    pin: true,
                     scrub: 1,
                 },
-            }
-        );
+            });
+
+            // 하이라이트 키워드 채우기 애니메이션 (노란색)
+            gsap.to(textObject.querySelectorAll('.highlight'), {
+                backgroundSize: '100% 100%',
+                scrollTrigger: {
+                    trigger: pinWrap,
+                    start: 'top top',
+                    end: '+=1000vh',
+                    scrub: 1,
+                },
+            });
+        }
+
         return () => {
-            ScrollTrigger.killAll(); // 컴포넌트 언마운트 시 ScrollTrigger 인스턴스 정리
+            ScrollTrigger.killAll();
         };
     }, []);
 
@@ -46,17 +51,30 @@ const SubtitleBanner = () => {
             <h2 className='sr-only'>부제</h2>
             <DivWrap
                 $width='100%'
-                $height='300vh'
+                $height='100vh'
                 $display='flex'
                 $alignItems='center'
                 $justifyContent='center'
                 $lineHeight='1.2'
                 className='textBox'
+                $padding='0 50px 0'
+                ref={pinWrapRef}
+                $position='sticky'
+                $top='0'
             >
                 <div>
-                    <WebkitSpan $fontSize='80px' $fontWeight='900' className='webkitSpan'>
-                        당신이 능력을 최대한 발휘해서 실행하는 데 주의를 기울이고 있다면,
-                        <br /> 당신은 성과 영역에 있는 것이다.
+                    <WebkitSpan
+                        $fontSize='80px'
+                        $fontWeight='900'
+                        className='webkitSpan'
+                        ref={textObjectRef}
+                        $color='transparent' // 기존 투명색 유지
+                    >
+                        당신이 <HighlightedKeyword className='highlight'>능력</HighlightedKeyword>을 최대한 발휘해서
+                        실행하는 데 <HighlightedKeyword className='highlight'>주의</HighlightedKeyword>를 기울이고
+                        있다면,
+                        <br /> 당신은 <HighlightedKeyword className='highlight'>성과</HighlightedKeyword> 영역에 있는
+                        것이다.
                     </WebkitSpan>
                 </div>
             </DivWrap>

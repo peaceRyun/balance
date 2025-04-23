@@ -10,6 +10,7 @@ const HomePage = () => {
             <MainContainer>
                 <IntroSec />
                 <SubtitleBanner />
+                <div style={{ height: '100vh' }}>sss</div>
             </MainContainer>
         </>
     );
