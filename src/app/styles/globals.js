@@ -40,6 +40,7 @@ export const DivWrap = styled.div`
     padding: ${(props) => props.$padding};
     display: ${(props) => props.$display};
     gap: ${(props) => props.$gap};
+    flex-direction: ${(props) => props.$flexDirection};
     align-items: ${(props) => props.$alignItems};
     justify-content: ${(props) => props.$justifyContent};
     width: ${(props) => props.$width};
@@ -47,6 +48,7 @@ export const DivWrap = styled.div`
     overflow: ${(props) => (props.$overflow ? props.$overflow : 'hidden')};
     position: ${(props) => props.$position};
     border-radius: ${(props) => props.$borderRadius};
+    bottom: ${(props) => props.$bottom};
 `;
 
 export const UlWrap = styled.ul`
@@ -59,6 +61,13 @@ export const UlWrap = styled.ul`
     height: ${(props) => props.$height};
     overflow: ${(props) => (props.$overflow ? props.$overflow : 'visible')};
     position: ${(props) => props.$position};
+`;
+
+export const StyledSpan = styled.span`
+    font-family: var(--my-poppins-font);
+    font-weight: ${(props) => props.$fontWeight};
+    font-size: ${(props) => props.$fontSize};
+    color: #2c3e50;
 `;
 
 export const StyledImg = styled.img`
