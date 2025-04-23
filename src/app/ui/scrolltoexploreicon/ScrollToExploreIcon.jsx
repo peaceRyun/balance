@@ -20,5 +20,7 @@ const IconWrap = styled.div`
     bottom: ${(props) => props.$bottom};
     left: ${(props) => props.$left};
     transform: ${(props) => props.$transform};
-    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;

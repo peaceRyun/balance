@@ -46,24 +46,22 @@ const IntroText = () => {
                                 <StyledLabel>FrontEnd Developer</StyledLabel>
                             </DivWrap>
                         </DivWrap>
+                        <DivWrap
+                            $width='100%'
+                            $display='flex'
+                            $flexDirection='column'
+                            $alignItems='center'
+                            $justifyContent='center'
+                            $gap='10px'
+                            $padding='200px 0 100px'
+                        >
+                            <StyledSpan $fontWeight='700' $fontSize='20px' $color='#2c3e50'>
+                                스크롤로 탐색하기
+                            </StyledSpan>
+                            <ScrollToExploreIcon />
+                        </DivWrap>
                     </SecCont>
                 </motion.div>
-                <DivWrap
-                    $position='absolute'
-                    $bottom='0'
-                    $width='100%'
-                    $display='flex'
-                    $flexDirection='column'
-                    $alignItems='center'
-                    $justifyContent='center'
-                    $gap='10px'
-                    $padding='0 0 100px'
-                >
-                    <StyledSpan $fontWeight='700' $fontSize='20px'>
-                        스크롤로 탐색하기
-                    </StyledSpan>
-                    <ScrollToExploreIcon />
-                </DivWrap>
             </div>
         </>
     );
