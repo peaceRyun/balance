@@ -1,7 +1,7 @@
 import { DivWrap, StyledImg, UlWrap } from '@/app/styles/globals';
 import { AniLi, SecAniCont } from './style';
 
-const DisplayPortfolioSec = () => {
+const PortfolioST = () => {
     return (
         <SecAniCont>
             <UlWrap $display='flex' $alignItems='center' $justifyContent='center'>
@@ -25,4 +25,4 @@ const DisplayPortfolioSec = () => {
     );
 };
 
-export default DisplayPortfolioSec;
+export default PortfolioST;

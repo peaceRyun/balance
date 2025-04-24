@@ -17,6 +17,14 @@ const getVariantTitleStyles = (variant) => {
             font-size: 30px;
             text-align: left;
             `;
+
+        case 'sectitle':
+            return `
+            font-family: var(--my-pretendard-font);
+            font-size: 72px;
+            letter-spacing: -5px;
+            margin-bottom: 5px;
+            `;
     }
 };
 
@@ -38,6 +46,7 @@ export const Space = styled.div`
 
 export const DivWrap = styled.div`
     padding: ${(props) => props.$padding};
+    margin: ${(props) => props.$margin};
     display: ${(props) => props.$display};
     gap: ${(props) => props.$gap};
     flex-direction: ${(props) => props.$flexDirection};
@@ -49,6 +58,7 @@ export const DivWrap = styled.div`
     position: ${(props) => props.$position};
     border-radius: ${(props) => props.$borderRadius};
     bottom: ${(props) => props.$bottom};
+    color: ${(props) => props.$color};
 `;
 
 export const UlWrap = styled.ul`
@@ -61,6 +71,13 @@ export const UlWrap = styled.ul`
     height: ${(props) => props.$height};
     overflow: ${(props) => (props.$overflow ? props.$overflow : 'visible')};
     position: ${(props) => props.$position};
+`;
+
+export const StyledLi = styled.li`
+    width: ${(props) => props.$width};
+    height: ${(props) => props.$height};
+    padding: ${(props) => props.$padding};
+    flex-shrink: ${(props) => props.$flexShrink};
 `;
 
 export const StyledSpan = styled.span`
@@ -79,12 +96,19 @@ export const StyledImg = styled.img`
 
 export const StyledH2 = styled.h2`
     ${(props) => getVariantTitleStyles(props.$variant)}
-    font-weight: ${(props) => props.$fontWeight}
+    font-weight: ${(props) => props.$fontWeight};
 `;
 
 export const StyledH3 = styled.h3`
     ${(props) => getVariantTitleStyles(props.$variant)}
-    font-weight: ${(props) => props.$fontWeight}
+    font-weight: ${(props) => props.$fontWeight};
+`;
+
+export const StyledP = styled.p`
+    font-family: var(--my-pretendard-font);
+    font-weight: ${(props) => props.$fontWeight};
+    font-size: ${(props) => props.$fontSize};
+    color: ${(props) => props.$color};
 `;
 
 export const StyledLabel = styled.div`
