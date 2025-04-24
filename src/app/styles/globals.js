@@ -70,8 +70,9 @@ export const UlWrap = styled.ul`
     justify-content: ${(props) => props.$justifyContent};
     width: ${(props) => props.$width};
     height: ${(props) => props.$height};
-    overflow: ${(props) => (props.$overflow ? props.$overflow : 'visible')};
+    overflow: ${(props) => props.$overflow};
     position: ${(props) => props.$position};
+    border-radius: ${(props) => props.$borderRadius};
 `;
 
 export const StyledLi = styled.li`
