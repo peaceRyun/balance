@@ -1,5 +1,23 @@
 import styled from 'styled-components';
 
+const getVariantLi = (variant) => {
+    switch (variant) {
+        case 'a':
+            return `
+            transform: rotate(-15deg);
+      `;
+        case 'b':
+            return `
+            transform: rotate(-10deg);
+            `;
+
+        case 'c':
+            return `
+            transform: rotate(8deg);
+            `;
+    }
+};
+
 export const BoxDivWrap = styled.div`
     padding: ${(props) => props.$padding};
     margin: ${(props) => props.$margin};
@@ -26,4 +44,8 @@ export const PDSStyledLI = styled.li`
     font-weight: ${(props) => props.$fontWeight};
     font-size: ${(props) => props.$fontSize};
     color: ${(props) => props.$color};
+    flex-shrink: ${(props) => props.$flexShrink} !important;
+    width: ${(props) => props.$width};
+    height: ${(props) => props.$height};
+    ${(props) => getVariantLi(props.$variant)}
 `;

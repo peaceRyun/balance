@@ -1,11 +1,11 @@
-import IntroText from './components/introtext/IntroText';
+import IntroText from "./components/introtext/IntroText";
 
 const IntroSec = () => {
-    return (
-        <>
-            <IntroText />
-        </>
-    );
+  return (
+    <>
+      <IntroText />
+    </>
+  );
 };
 
 export default IntroSec;

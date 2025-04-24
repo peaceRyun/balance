@@ -34,6 +34,7 @@ export const SecCont = styled.section`
     height: 100%;
     padding: ${(props) => props.$padding};
     background-color: ${(props) => props.$backgroundColor};
+    overflow: ${(props) => props.$overFlow};
 `;
 
 export const Space = styled.div`

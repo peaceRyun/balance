@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
-const base = '0.6rem';
+const base = "0.6rem";
 
 const moveChevron = keyframes`
   25% {
@@ -21,39 +21,39 @@ const moveChevron = keyframes`
 `;
 
 export const Chevron = styled.div`
+  position: absolute;
+  width: calc(${base} * 3.5);
+  height: calc(${base} * 0.8);
+  opacity: 0;
+  transform: scale(0.3);
+  animation: ${moveChevron} 3s ease-out infinite;
+
+  &:first-child {
+    animation-delay: 1s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 2s;
+  }
+
+  &::before,
+  &::after {
+    content: "";
     position: absolute;
-    width: calc(${base} * 3.5);
-    height: calc(${base} * 0.8);
-    opacity: 0;
-    transform: scale(0.3);
-    animation: ${moveChevron} 3s ease-out infinite;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background: #2c3e50;
+  }
 
-    &:first-child {
-        animation-delay: 1s;
-    }
+  &::before {
+    left: 0;
+    transform: skewY(30deg);
+  }
 
-    &:nth-child(2) {
-        animation-delay: 2s;
-    }
-
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 50%;
-        background: #2c3e50;
-    }
-
-    &::before {
-        left: 0;
-        transform: skewY(30deg);
-    }
-
-    &::after {
-        right: 0;
-        width: 50%;
-        transform: skewY(-30deg);
-    }
+  &::after {
+    right: 0;
+    width: 50%;
+    transform: skewY(-30deg);
+  }
 `;
