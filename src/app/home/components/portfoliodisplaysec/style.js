@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 export const BoxDivWrap = styled.div`
     padding: ${(props) => props.$padding};
@@ -21,15 +22,22 @@ export const BoxDivWrap = styled.div`
     }
 `;
 
-export const PDSStyledLI = styled.li`
-    font-family: var(--my-poppins-font);
-    font-weight: ${(props) => props.$fontWeight};
-    font-size: ${(props) => props.$fontSize};
-    color: ${(props) => props.$color};
-    flex-shrink: ${(props) => props.$flexShrink} !important;
-    width: ${(props) => props.$width};
-    height: ${(props) => props.$height};
-    padding: ${(props) => props.$padding};
-    margin: ${(props) => props.$margin};
+export const StyledSwiper = styled(Swiper)`
+    padding: 6% 0%;
+    width: 100% !important;
+    height: auto;
+    overflow: visible;
+    border-radius: 10px;
+    .swiper-wrapper {
+        display: flex;
+        align-items: center;
+    }
+`;
+
+export const StyledSwiperSlide = styled(SwiperSlide)`
+    width: calc(100vw * 0.5);
+    height: auto;
+    aspect-ratio: 1.5 / 1;
+    border-radius: 10px;
     border-radius: ${(props) => props.$borderRadius};
 `;

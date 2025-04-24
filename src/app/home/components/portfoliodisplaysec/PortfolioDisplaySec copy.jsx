@@ -1,54 +1,31 @@
 'use client';
 
-import { DivWrap, SecCont, StyledH3, StyledImg, StyledP } from '@/app/styles/globals';
-import { BoxDivWrap, StyledSwiper, StyledSwiperSlide } from './style';
+import { DivWrap, SecCont, StyledH3, StyledImg, StyledP, UlWrap } from '@/app/styles/globals';
+import { BoxDivWrap, PDSStyledLI } from './style';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-
-import 'swiper/css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PortfolioDisplaySec = () => {
-    const swiperRef = useRef(null);
-
     useEffect(() => {
-        let swiperInstance;
-        let scrollTriggerInstance;
+        //gsap.utils.toArray는 대상을 배열로 만들어줍니다.
+        const list = gsap.utils.toArray('.portfolio .list li');
 
-        if (swiperRef.current) {
-            swiperInstance = swiperRef.current.swiper;
-        }
-
-        if (swiperInstance) {
-            const totalSlides = swiperInstance.slides.length;
-
-            // 먼저 ScrollTrigger 설정을 생성
-            scrollTriggerInstance = ScrollTrigger.create({
+        gsap.to(list, {
+            //리스트 길이를 기반으로 마지막 요소까지 이동해야할 거리를 백분율 단위로 계산하는 수식입니다.
+            xPercent: -100 * (list.length - 1),
+            ease: 'none',
+            scrollTrigger: {
                 trigger: '.portfolio',
                 pin: true,
                 scrub: 1,
-                snap: (value) => {
-                    const snapPoints = Array.from({ length: totalSlides }, (_, i) => i / (totalSlides - 1));
-                    return gsap.utils.snap(snapPoints, value);
-                },
                 start: 'center center',
-                end: '+=200%',
-                markers: true,
-                onUpdate: (self) => {
-                    // ScrollTrigger가 업데이트될 때마다 translateX 값 계산
-                    const progress = self.progress;
-                    const translateX = -progress * (swiperInstance.width * (totalSlides - 1));
-                    gsap.set(swiperInstance.wrapperEl, { translateX: `${translateX}px` });
-                },
-            });
-        }
-
-        return () => {
-            // 컴포넌트 언마운트 시 정리
-            if (scrollTriggerInstance) scrollTriggerInstance.kill();
-        };
+                end: '200%',
+                marker: true,
+            },
+        });
     }, []);
 
     return (
@@ -59,40 +36,33 @@ const PortfolioDisplaySec = () => {
                     <StyledP $fontSize='36px'>성과 영역</StyledP>
                     <StyledH3 $variant='sectitle'>PORTFOLIO</StyledH3>
                 </DivWrap>
-                <StyledSwiper
-                    ref={swiperRef}
-                    className='list'
-                    slidesPerView={1.5}
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    loop={false}
-                >
-                    <StyledSwiperSlide>
+                <UlWrap className='list' $display='flex' $padding='6% 0%' $borderRadius='10px' $overflow='hidden'>
+                    <PDSStyledLI $width='600px' $height='320px' $flexShrink='0' $borderRadius='10px'>
                         <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
                             <StyledImg src='./home/displayportfolio/thumb/pretcoord.png' alt='개인포폴241216' />
                         </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
+                    </PDSStyledLI>
+                    <PDSStyledLI $width='600px' $height='320px' $margin='0 30px' $flexShrink='0' $borderRadius='10px'>
                         <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
                             <StyledImg src='./home/displayportfolio/thumb/sunfish.png' alt='개인포폴241123' />
                         </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
+                    </PDSStyledLI>
+                    <PDSStyledLI $width='600px' $height='320px' $margin='0 30px' $flexShrink='0' $borderRadius='10px'>
                         <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
                             <StyledImg src='./home/displayportfolio/thumb/samcheonbike.png' alt='개인포폴241014' />
                         </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
+                    </PDSStyledLI>
+                    <PDSStyledLI $width='600px' $height='320px' $margin='0 30px' $flexShrink='0' $borderRadius='10px'>
                         <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
                             <StyledImg src='./home/displayportfolio/thumb/vancleef.png' alt='팀포폴250226' />
                         </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
+                    </PDSStyledLI>
+                    <PDSStyledLI $width='600px' $height='320px' $margin='0 30px' $flexShrink='0'>
                         <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
                             <StyledImg src='./home/displayportfolio/thumb/vibo.png' alt='팀포폴241231' />
                         </BoxDivWrap>
-                    </StyledSwiperSlide>
-                </StyledSwiper>
+                    </PDSStyledLI>
+                </UlWrap>
             </DivWrap>
         </SecCont>
     );
