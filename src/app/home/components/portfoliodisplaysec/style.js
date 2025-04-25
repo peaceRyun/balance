@@ -16,10 +16,6 @@ export const BoxDivWrap = styled.div`
     border-radius: ${(props) => props.$borderRadius};
     bottom: ${(props) => props.$bottom};
     color: ${(props) => props.$color};
-    &:hover {
-        transform: scale(0.98);
-        filter: brightness(60%);
-    }
 `;
 
 export const StyledSwiper = styled(Swiper)`

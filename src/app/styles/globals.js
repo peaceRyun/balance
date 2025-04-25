@@ -94,6 +94,9 @@ export const StyledImg = styled.img`
     display: block;
     width: 100%;
     height: 100%;
+    transition:
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
 `;
 
 export const StyledH2 = styled.h2`

@@ -7,11 +7,22 @@ import { useEffect, useRef } from 'react';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import 'swiper/css';
+import { portfoliodata } from '@/app/api/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PortfolioDisplaySec = () => {
     const swiperRef = useRef(null);
+
+    const handleMouseEnter = (event) => {
+        event.currentTarget.style.transform = 'scale(1.04)';
+        event.currentTarget.style.cursor = 'pointer';
+    };
+
+    const handleMouseLeave = (event) => {
+        event.currentTarget.style.transform = 'scale(1)';
+        event.currentTarget.style.cursor = 'auto';
+    };
 
     useEffect(() => {
         let swiperInstance;
@@ -67,31 +78,18 @@ const PortfolioDisplaySec = () => {
                     centeredSlides={true}
                     loop={false}
                 >
-                    <StyledSwiperSlide>
-                        <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
-                            <StyledImg src='./home/displayportfolio/thumb/pretcoord.png' alt='개인포폴241216' />
-                        </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
-                        <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
-                            <StyledImg src='./home/displayportfolio/thumb/sunfish.png' alt='개인포폴241123' />
-                        </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
-                        <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
-                            <StyledImg src='./home/displayportfolio/thumb/samcheonbike.png' alt='개인포폴241014' />
-                        </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
-                        <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
-                            <StyledImg src='./home/displayportfolio/thumb/vancleef.png' alt='팀포폴250226' />
-                        </BoxDivWrap>
-                    </StyledSwiperSlide>
-                    <StyledSwiperSlide>
-                        <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
-                            <StyledImg src='./home/displayportfolio/thumb/vibo.png' alt='팀포폴241231' />
-                        </BoxDivWrap>
-                    </StyledSwiperSlide>
+                    {portfoliodata.map((item) => (
+                        <StyledSwiperSlide key={item.id}>
+                            <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
+                                <StyledImg
+                                    src={item.src}
+                                    alt={item.alt}
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                />
+                            </BoxDivWrap>
+                        </StyledSwiperSlide>
+                    ))}
                 </StyledSwiper>
             </DivWrap>
         </SecCont>
