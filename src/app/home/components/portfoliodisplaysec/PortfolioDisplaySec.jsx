@@ -14,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PortfolioDisplaySec = () => {
     const swiperRef = useRef(null);
+    const sectionRef = useRef(null);
 
     const handleMouseEnter = (event) => {
         event.currentTarget.style.transform = 'scale(1.04)';
@@ -26,76 +27,58 @@ const PortfolioDisplaySec = () => {
     };
 
     useEffect(() => {
-        let swiperInstance;
-        let scrollTriggerInstance;
+        let scrollTrigger;
+        const totalSlides = portfoliodata.length;
 
-        if (swiperRef.current) {
-            swiperInstance = swiperRef.current.swiper;
-        }
+        if (swiperRef.current && sectionRef.current) {
+            const swiper = swiperRef.current;
 
-        if (swiperInstance) {
-            const totalSlides = swiperInstance.slides.length;
+            const transitionDuration = 0.8;
 
-            scrollTriggerInstance = ScrollTrigger.create({
-                trigger: '.portfolio',
+            // 스크롤 트리거 설정
+            scrollTrigger = ScrollTrigger.create({
+                trigger: sectionRef.current,
                 pin: true,
-                snap: {
-                    snapTo: Array.from({ length: totalSlides }, (_, i) => i / (totalSlides - 1)),
-                    duration: 0.5,
-                    ease: 'power3.inOut',
-                },
                 start: 'top top',
-                end: `+=${totalSlides - 1}00%`,
-                onUpdate: (self) => {
-                    const progress = self.progress;
-                    const snapIndex = Math.round(progress * (totalSlides - 1));
-                    if (swiperInstance.activeIndex !== snapIndex) {
-                        swiperInstance.slideTo(snapIndex);
-                    }
-                    // 활성 슬라이드 클래스 업데이트
-                    swiperInstance.slides.forEach((slide, index) => {
-                        if (index === snapIndex) {
-                            slide.classList.add('active');
-                        } else {
-                            slide.classList.remove('active');
-                        }
-                    });
+                end: `+=${(totalSlides - 1) * 100}%`,
+                snap: {
+                    snapTo: 1 / (totalSlides - 1), // 각 슬라이드 간격을 균등하게 나눔
+                    duration: { min: 0.6, max: 0.8 }, // 스냅 애니메이션 시간
+                    ease: 'power2.inOut',
                 },
-                onKill: () => {
-                    // ScrollTrigger가 kill될 때 Swiper 이벤트 리스너 제거 (안전하게 처리)
-                    swiperInstance?.off('slideChange');
+                onUpdate: (self) => {
+                    // 스크롤 위치에 따른 슬라이드 인덱스 계산
+                    const newIndex = Math.round(self.progress * (totalSlides - 1));
+
+                    // 슬라이드 인덱스가 변경된 경우만 업데이트
+                    if (swiper.activeIndex !== newIndex) {
+                        swiper.slideTo(newIndex, transitionDuration * 1000, 'cubic-bezier(0.42, 0, 0.58, 1)');
+                    }
                 },
             });
 
-            // Swiper 초기 설정 (centeredSlides 활성화)
-            swiperInstance.params.centeredSlides = true;
-            swiperInstance.update();
+            // Swiper가 슬라이드를 변경할 때 호출될 이벤트 리스너
+            swiper.on('slideChange', () => {
+                const newIndex = swiper.activeIndex;
 
-            // 초기 로드시 active 클래스 적용
-            if (swiperInstance.slides && swiperInstance.activeIndex !== undefined) {
-                swiperInstance.slides.forEach((slide, index) => {
-                    if (index === swiperInstance.activeIndex) {
-                        slide.classList.add('active');
-                    }
-                });
-            }
-
-            // Swiper의 slideChange 이벤트 핸들러 (필요하다면 추가적인 동작 정의)
-            swiperInstance.on('slideChange', () => {
-                // ScrollTrigger progress를 현재 Swiper index에 맞게 업데이트 (선택 사항)
-                const currentIndex = swiperInstance.activeIndex;
-                const progress = currentIndex / (totalSlides - 1);
-                gsap.to(scrollTriggerInstance, { progress, overwrite: true, duration: 0.5, ease: 'power3.inOut' });
+                // ScrollTrigger의 progress를 해당 슬라이드에 맞게 업데이트
+                const progress = newIndex / (totalSlides - 1);
+                scrollTrigger.scroll(scrollTrigger.start + (scrollTrigger.end - scrollTrigger.start) * progress);
             });
         }
 
         return () => {
-            if (scrollTriggerInstance) scrollTriggerInstance.kill();
+            if (scrollTrigger) {
+                scrollTrigger.kill();
+            }
+            if (swiperRef.current) {
+                swiperRef.current.off('slideChange');
+            }
         };
     }, []);
 
     return (
-        <SecCont className='portfolio' $padding='100px 0 0' $overFlow='hidden'>
+        <SecCont className='portfolio' $padding='100px 0 0' $overFlow='hidden' ref={sectionRef}>
             <h2 className='sr-only'>포트폴리오 섹션</h2>
             <DivWrap $padding='0px 50px' $height='100vh'>
                 <DivWrap className='textBox' $width='100%' $margin='0 auto 80px' $color='#0f0d0d'>
@@ -103,17 +86,16 @@ const PortfolioDisplaySec = () => {
                     <StyledH3 $variant='sectitle'>PORTFOLIO</StyledH3>
                 </DivWrap>
                 <StyledSwiper
-                    ref={swiperRef}
+                    onSwiper={(swiper) => {
+                        swiperRef.current = swiper;
+                    }}
                     className='list'
                     slidesPerView={'auto'}
                     spaceBetween={30}
-                    centeredSlides={true}
+                    centeredSlides={true} // 활성화된 슬라이드를 중앙에 배치
                     loop={false}
-                    onSwiper={(swiper) => {
-                        if (swiper && !swiperRef.current) {
-                            swiperRef.current = { swiper };
-                        }
-                    }}
+                    initialSlide={0}
+                    watchSlidesProgress={true}
                 >
                     {portfoliodata.map((item) => (
                         <StyledSwiperSlide key={item.id}>
