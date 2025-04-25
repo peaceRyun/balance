@@ -8,6 +8,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import 'swiper/css';
 import { portfoliodata } from '@/app/api/data';
+import { SwiperSlide } from 'swiper/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,29 +36,60 @@ const PortfolioDisplaySec = () => {
         if (swiperInstance) {
             const totalSlides = swiperInstance.slides.length;
 
-            // 먼저 ScrollTrigger 설정을 생성
             scrollTriggerInstance = ScrollTrigger.create({
                 trigger: '.portfolio',
                 pin: true,
-                scrub: 1,
-                snap: (value) => {
-                    const snapPoints = Array.from({ length: totalSlides }, (_, i) => i / (totalSlides - 1));
-                    return gsap.utils.snap(snapPoints, value);
+                snap: {
+                    snapTo: Array.from({ length: totalSlides }, (_, i) => i / (totalSlides - 1)),
+                    duration: 0.5,
+                    ease: 'power3.inOut',
                 },
-                start: 'center center',
-                end: '+=200%',
-                markers: true,
+                start: 'top top',
+                end: `+=${totalSlides - 1}00%`,
                 onUpdate: (self) => {
-                    // ScrollTrigger가 업데이트될 때마다 translateX 값 계산
                     const progress = self.progress;
-                    const translateX = -progress * (swiperInstance.width * (totalSlides - 1));
-                    gsap.set(swiperInstance.wrapperEl, { translateX: `${translateX}px` });
+                    const snapIndex = Math.round(progress * (totalSlides - 1));
+                    if (swiperInstance.activeIndex !== snapIndex) {
+                        swiperInstance.slideTo(snapIndex);
+                    }
+                    // 활성 슬라이드 클래스 업데이트
+                    swiperInstance.slides.forEach((slide, index) => {
+                        if (index === snapIndex) {
+                            slide.classList.add('active');
+                        } else {
+                            slide.classList.remove('active');
+                        }
+                    });
                 },
+                onKill: () => {
+                    // ScrollTrigger가 kill될 때 Swiper 이벤트 리스너 제거 (안전하게 처리)
+                    swiperInstance?.off('slideChange');
+                },
+            });
+
+            // Swiper 초기 설정 (centeredSlides 활성화)
+            swiperInstance.params.centeredSlides = true;
+            swiperInstance.update();
+
+            // 초기 로드시 active 클래스 적용
+            if (swiperInstance.slides && swiperInstance.activeIndex !== undefined) {
+                swiperInstance.slides.forEach((slide, index) => {
+                    if (index === swiperInstance.activeIndex) {
+                        slide.classList.add('active');
+                    }
+                });
+            }
+
+            // Swiper의 slideChange 이벤트 핸들러 (필요하다면 추가적인 동작 정의)
+            swiperInstance.on('slideChange', () => {
+                // ScrollTrigger progress를 현재 Swiper index에 맞게 업데이트 (선택 사항)
+                const currentIndex = swiperInstance.activeIndex;
+                const progress = currentIndex / (totalSlides - 1);
+                gsap.to(scrollTriggerInstance, { progress, overwrite: true, duration: 0.5, ease: 'power3.inOut' });
             });
         }
 
         return () => {
-            // 컴포넌트 언마운트 시 정리
             if (scrollTriggerInstance) scrollTriggerInstance.kill();
         };
     }, []);
@@ -65,18 +97,23 @@ const PortfolioDisplaySec = () => {
     return (
         <SecCont className='portfolio' $padding='100px 0 0' $overFlow='hidden'>
             <h2 className='sr-only'>포트폴리오 섹션</h2>
-            <DivWrap $padding='120px 50px' $height='100vh'>
-                <DivWrap className='textBox' $width='100%' $margin='0 auto' $color='#0f0d0d'>
+            <DivWrap $padding='0px 50px' $height='100vh'>
+                <DivWrap className='textBox' $width='100%' $margin='0 auto 80px' $color='#0f0d0d'>
                     <StyledP $fontSize='36px'>성과 영역</StyledP>
                     <StyledH3 $variant='sectitle'>PORTFOLIO</StyledH3>
                 </DivWrap>
                 <StyledSwiper
                     ref={swiperRef}
                     className='list'
-                    slidesPerView={1.5}
+                    slidesPerView={'auto'}
                     spaceBetween={30}
                     centeredSlides={true}
                     loop={false}
+                    onSwiper={(swiper) => {
+                        if (swiper && !swiperRef.current) {
+                            swiperRef.current = { swiper };
+                        }
+                    }}
                 >
                     {portfoliodata.map((item) => (
                         <StyledSwiperSlide key={item.id}>

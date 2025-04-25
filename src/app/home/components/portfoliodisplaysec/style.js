@@ -19,10 +19,9 @@ export const BoxDivWrap = styled.div`
 `;
 
 export const StyledSwiper = styled(Swiper)`
-    padding: 6% 0%;
     width: 100% !important;
-    height: auto;
-    overflow: visible;
+    height: 630px !important;
+    overflow: hidden;
     border-radius: 10px;
     .swiper-wrapper {
         display: flex;
@@ -31,9 +30,6 @@ export const StyledSwiper = styled(Swiper)`
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
-    width: calc(100vw * 0.5);
-    height: auto;
-    aspect-ratio: 1.5 / 1;
-    border-radius: 10px;
-    border-radius: ${(props) => props.$borderRadius};
+    width: 930px !important;
+    height: 100% !important;
 `;
