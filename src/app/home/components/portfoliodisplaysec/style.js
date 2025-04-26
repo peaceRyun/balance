@@ -27,9 +27,24 @@ export const StyledSwiper = styled(Swiper)`
         display: flex;
         align-items: center;
     }
+    .swiper-slide {
+        margin-right: 4vw;
+    }
+    @media (max-width: 1280px) {
+        height: 413px !important;
+    }
+    @media (max-width: 768px) {
+        height: 135px !important;
+    }
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
     width: 930px !important;
     height: 100% !important;
+    @media (max-width: 1280px) {
+        width: 610px !important;
+    }
+    @media (max-width: 768px) {
+        width: 200px !important;
+    }
 `;

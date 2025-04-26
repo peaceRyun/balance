@@ -86,12 +86,23 @@ const PortfolioDisplaySec = () => {
     }, []);
 
     return (
-        <SecCont className='portfolio' $padding='100px 0 0' $overFlow='hidden' ref={sectionRef}>
+        <SecCont className='portfolio' $overFlow='hidden' ref={sectionRef}>
             <h2 className='sr-only'>포트폴리오 섹션</h2>
-            <DivWrap $padding='0px 50px' $height='100vh'>
+            <DivWrap
+                $padding='120px 80px'
+                $height='100vh'
+                $display='flex'
+                $flexDirection='column'
+                $justifyContent='space-around'
+                $alignItems='flex-start'
+            >
                 <DivWrap className='textBox' $width='100%' $margin='0 auto 80px' $color='#0f0d0d'>
-                    <StyledP $fontSize='36px'>성과 영역</StyledP>
-                    <StyledH3 $variant='sectitle'>PORTFOLIO</StyledH3>
+                    <StyledP $fontSize='36px' $fontWeight='400'>
+                        성과 영역
+                    </StyledP>
+                    <StyledH3 $variant='sectitle' $fontWeight='900'>
+                        PORTFOLIO
+                    </StyledH3>
                 </DivWrap>
                 <StyledSwiper
                     onSwiper={(swiper) => {
@@ -99,7 +110,6 @@ const PortfolioDisplaySec = () => {
                     }}
                     className='list'
                     slidesPerView={'auto'}
-                    spaceBetween={30}
                     centeredSlides={true} // 활성화된 슬라이드를 중앙에 배치
                     loop={false}
                     initialSlide={0}

@@ -27,9 +27,15 @@ const getVariantTitleStyles = (variant) => {
         case 'sectitle':
             return `
             font-family: var(--my-pretendard-font);
-            font-size: 72px;
+            font-size: 60px;
             letter-spacing: -5px;
             margin-bottom: 5px;
+            @media (max-width: 1280px) {
+                font-size: 44px;
+            }
+            @media (max-width: 768px) {
+                font-size: 32px;
+            }
             `;
     }
 };
