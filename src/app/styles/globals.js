@@ -10,6 +10,12 @@ const getVariantTitleStyles = (variant) => {
                 line-height: 0.8em;
                 letter-spacing: -0.09em;
                 color: rgb(52, 53, 57);
+                @media (max-width: 1280px) {
+                    font-size: 136px;
+                }
+                @media (max-width: 768px) {
+                    font-size: 73px;
+                }
       `;
         case 'subtitle':
             return `
@@ -26,6 +32,40 @@ const getVariantTitleStyles = (variant) => {
             margin-bottom: 5px;
             `;
     }
+};
+
+const introLabelResponsive = () => {
+    return `
+        @media (max-width: 768px) {
+            flex-direction: column;
+            padding: 10px 0 5px;
+            gap: 10px;
+        }
+    `;
+};
+
+const introImgResponsive = () => {
+    return `
+        @media (max-width: 1280px) {
+            width: 204px;
+            height: 108.8px;
+        }
+        @media (max-width: 768px) {
+            width: 109.5px;
+            height: 58.41px;
+        }
+    `;
+};
+
+const innerResponsive = () => {
+    return `
+        @media (max-width: 1280px) {
+            padding: 70px 20px 15px;
+        }
+        @media (max-width: 768px) {
+            padding: 50px 30px 0px;
+        }
+    `;
 };
 
 export const SecCont = styled.section`
@@ -60,6 +100,9 @@ export const DivWrap = styled.div`
     border-radius: ${(props) => props.$borderRadius};
     bottom: ${(props) => props.$bottom};
     color: ${(props) => props.$color};
+    ${(props) => (props.$introLabelResponsive ? introLabelResponsive() : null)}
+    ${(props) => (props.$introImgResponsive ? introImgResponsive() : null)}
+    ${(props) => (props.$innerResponsive ? innerResponsive() : null)}
 `;
 
 export const UlWrap = styled.ul`
@@ -114,14 +157,4 @@ export const StyledP = styled.p`
     font-weight: ${(props) => props.$fontWeight};
     font-size: ${(props) => props.$fontSize};
     color: ${(props) => props.$color};
-`;
-
-export const StyledLabel = styled.div`
-    font-family: var(--my-poppins-font);
-    font-weight: 600;
-    color: rgb(52, 53, 57);
-    border: 2px solid rgb(52, 53, 57);
-    border-radius: 250px;
-    padding: 10px 25px;
-    font-size: 20px;
 `;

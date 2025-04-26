@@ -11,10 +11,6 @@ import { useEffect } from 'react';
 const HomePage = () => {
     const { isPortfolioST } = useSelector((state) => state.sTR);
 
-    useEffect(() => {
-        console.log('isPortfolioST 상태 변경:', isPortfolioST); // 이 줄을 추가
-    }, [isPortfolioST]);
-
     return (
         <>
             <MainContainer>

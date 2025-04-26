@@ -31,11 +31,9 @@ const SubtitleBanner = () => {
                     scrub: 1,
                     onEnterBack: () => {
                         dispatch(sTActions.setPortfolioST(false));
-                        console.log('onEnterBack dispatch 호출됨 (textObject)');
                     },
                     onLeave: () => {
                         dispatch(sTActions.setPortfolioST(true));
-                        console.log('onLeave 호출됨 (textObject)');
                     },
                 },
             });
