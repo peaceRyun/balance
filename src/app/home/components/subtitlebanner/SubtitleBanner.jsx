@@ -70,20 +70,14 @@ const SubtitleBanner = () => {
                 ref={pinWrapRef}
                 $position='sticky'
                 $top='0'
+                $innerBannerResponsive
             >
                 <div>
-                    <WebkitSpan
-                        $fontSize='80px'
-                        $fontWeight='900'
-                        className='webkitSpan'
-                        ref={textObjectRef}
-                        $color='transparent'
-                    >
-                        당신이 <HighlightedKeyword className='highlight'>능력</HighlightedKeyword>을 최대한 발휘해서
-                        실행하는 데 <HighlightedKeyword className='highlight'>주의</HighlightedKeyword>
-                        를 기울이고 있다면,
-                        <br /> 당신은 <HighlightedKeyword className='highlight'>성과</HighlightedKeyword> 영역에 있는
-                        것이다.
+                    <WebkitSpan $fontWeight='900' className='webkitSpan' ref={textObjectRef} $color='transparent'>
+                        "당신이 능력을 최대한 발휘해서 실행하는 데 <br />
+                        주의 를 기울이고 있다면,
+                        <br /> 당신은 <HighlightedKeyword className='highlight'>성과 영역</HighlightedKeyword>에 있는
+                        것이다."
                     </WebkitSpan>
                 </div>
             </DivWrap>

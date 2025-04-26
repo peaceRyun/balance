@@ -68,6 +68,17 @@ const innerResponsive = () => {
     `;
 };
 
+const innerBannerResponsive = () => {
+    return `
+        @media (max-width: 1280px) {
+            padding: 0px 20px 0px;
+        }
+        @media (max-width: 768px) {
+            padding: 0px 30px 0px;
+        }
+    `;
+};
+
 export const SecCont = styled.section`
     position: ${(props) => (props.$position ? props.$position : 'relative')};
     width: 100%;
@@ -103,6 +114,7 @@ export const DivWrap = styled.div`
     ${(props) => (props.$introLabelResponsive ? introLabelResponsive() : null)}
     ${(props) => (props.$introImgResponsive ? introImgResponsive() : null)}
     ${(props) => (props.$innerResponsive ? innerResponsive() : null)}
+    ${(props) => (props.$innerBannerResponsive ? innerBannerResponsive() : null)}
 `;
 
 export const UlWrap = styled.ul`

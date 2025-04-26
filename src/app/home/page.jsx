@@ -6,7 +6,6 @@ import PortfolioDisplaySec from './components/portfoliodisplaysec/PortfolioDispl
 import SubtitleBanner from './components/subtitlebanner/SubtitleBanner';
 import { MainContainer } from './style';
 import PortfolioST from './components/portfoliost/PortfolioST';
-import { useEffect } from 'react';
 
 const HomePage = () => {
     const { isPortfolioST } = useSelector((state) => state.sTR);
