@@ -10,6 +10,7 @@ import 'swiper/css';
 import { portfoliodata } from '@/app/api/data';
 import { sTActions } from '@/app/store/modules/sTSlice';
 import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,7 +102,7 @@ const PortfolioDisplaySec = () => {
                         성과 영역
                     </StyledH3>
                     <StyledH4 $variant='titleLarge' $fontWeight='700'>
-                        PORTFOLIO
+                        PROJECTS
                     </StyledH4>
                 </DivWrap>
                 <StyledSwiper
@@ -117,14 +118,16 @@ const PortfolioDisplaySec = () => {
                 >
                     {portfoliodata.map((item) => (
                         <StyledSwiperSlide key={item.id}>
-                            <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
-                                <StyledImg
-                                    src={item.src}
-                                    alt={item.alt}
-                                    onMouseEnter={handleMouseEnter}
-                                    onMouseLeave={handleMouseLeave}
-                                />
-                            </BoxDivWrap>
+                            <Link href={`/projects/${item.id}`}>
+                                <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
+                                    <StyledImg
+                                        src={item.src}
+                                        alt={item.alt}
+                                        onMouseEnter={handleMouseEnter}
+                                        onMouseLeave={handleMouseLeave}
+                                    />
+                                </BoxDivWrap>
+                            </Link>
                         </StyledSwiperSlide>
                     ))}
                 </StyledSwiper>
