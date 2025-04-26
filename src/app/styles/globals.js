@@ -24,19 +24,33 @@ const getVariantTitleStyles = (variant) => {
             text-align: left;
             `;
 
-        case 'sectitle':
+        case 'titleLarge':
             return `
             font-family: var(--my-pretendard-font);
-            font-size: 60px;
-            letter-spacing: -5px;
-            margin-bottom: 5px;
+            font-size: 40px;
+            letter-spacing: 1px;
+            line-height: 150%;
             @media (max-width: 1280px) {
-                font-size: 44px;
+                font-size: 40px;
             }
             @media (max-width: 768px) {
-                font-size: 32px;
+                font-size: 28px;
             }
             `;
+
+        case 'titleMedium':
+            return `
+                font-family: var(--my-pretendard-font);
+                font-size: 32px;
+                letter-spacing: 0px;
+                line-height: 150%;
+                @media (max-width: 1280px) {
+                    font-size: 32px;
+                }
+                @media (max-width: 768px) {
+                    font-size: 24px;
+                }
+                `;
     }
 };
 
@@ -166,6 +180,11 @@ export const StyledH2 = styled.h2`
 `;
 
 export const StyledH3 = styled.h3`
+    ${(props) => getVariantTitleStyles(props.$variant)}
+    font-weight: ${(props) => props.$fontWeight};
+`;
+
+export const StyledH4 = styled.h4`
     ${(props) => getVariantTitleStyles(props.$variant)}
     font-weight: ${(props) => props.$fontWeight};
 `;

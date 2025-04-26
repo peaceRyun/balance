@@ -1,6 +1,6 @@
 'use client';
 
-import { DivWrap, SecCont, StyledH3, StyledImg, StyledP } from '@/app/styles/globals';
+import { DivWrap, SecCont, StyledH3, StyledH4, StyledImg, StyledP } from '@/app/styles/globals';
 import { BoxDivWrap, StyledSwiper, StyledSwiperSlide } from './style';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
@@ -97,12 +97,12 @@ const PortfolioDisplaySec = () => {
                 $alignItems='flex-start'
             >
                 <DivWrap className='textBox' $width='100%' $margin='0 auto 80px' $color='#0f0d0d'>
-                    <StyledP $fontSize='36px' $fontWeight='400'>
+                    <StyledH3 $variant='titleMedium' $fontWeight='400'>
                         성과 영역
-                    </StyledP>
-                    <StyledH3 $variant='sectitle' $fontWeight='900'>
-                        PORTFOLIO
                     </StyledH3>
+                    <StyledH4 $variant='titleLarge' $fontWeight='700'>
+                        PORTFOLIO
+                    </StyledH4>
                 </DivWrap>
                 <StyledSwiper
                     onSwiper={(swiper) => {
