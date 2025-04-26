@@ -30,18 +30,12 @@ const SubtitleBanner = () => {
                     pin: true,
                     scrub: 1,
                     onEnterBack: () => {
-                        dispatch(sTActions.setPortfolioST());
+                        dispatch(sTActions.setPortfolioST(false));
                         console.log('onEnterBack dispatch 호출됨 (textObject)');
                     },
                     onLeave: () => {
-                        dispatch(sTActions.setPortfolioST());
+                        dispatch(sTActions.setPortfolioST(true));
                         console.log('onLeave 호출됨 (textObject)');
-                    },
-                    onEnter: () => {
-                        console.log('onEnter 호출됨 (textObject)');
-                    },
-                    onLeaveBack: () => {
-                        console.log('onLeaveBack 호출됨 (textObject)');
                     },
                 },
             });

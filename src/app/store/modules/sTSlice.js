@@ -8,8 +8,8 @@ const sTSlice = createSlice({
     name: 'screentransform',
     initialState,
     reducers: {
-        setPortfolioST: (state) => {
-            state.isPortfolioST = !state.isPortfolioST;
+        setPortfolioST: (state, actions) => {
+            state.isPortfolioST = actions.payload;
         },
     },
 });

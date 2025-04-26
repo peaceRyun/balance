@@ -8,13 +8,15 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import 'swiper/css';
 import { portfoliodata } from '@/app/api/data';
-import { SwiperSlide } from 'swiper/react';
+import { sTActions } from '@/app/store/modules/sTSlice';
+import { useDispatch } from 'react-redux';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PortfolioDisplaySec = () => {
     const swiperRef = useRef(null);
     const sectionRef = useRef(null);
+    const dispatch = useDispatch();
 
     const handleMouseEnter = (event) => {
         event.currentTarget.style.transform = 'scale(1.04)';
@@ -45,6 +47,12 @@ const PortfolioDisplaySec = () => {
                     snapTo: 1 / (totalSlides - 1), // 각 슬라이드 간격을 균등하게 나눔
                     duration: { min: 0.6, max: 0.8 }, // 스냅 애니메이션 시간
                     ease: 'power2.inOut',
+                },
+                onEnter: () => {
+                    dispatch(sTActions.setPortfolioST(false));
+                },
+                onLeaveBack: () => {
+                    dispatch(sTActions.setPortfolioST(true));
                 },
                 onUpdate: (self) => {
                     // 스크롤 위치에 따른 슬라이드 인덱스 계산
