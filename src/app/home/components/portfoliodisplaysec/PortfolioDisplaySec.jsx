@@ -69,18 +69,9 @@ const PortfolioDisplaySec = () => {
 
                     // 슬라이드 인덱스가 변경된 경우만 업데이트
                     if (swiper.activeIndex !== newIndex) {
-                        swiper.slideTo(newIndex, transitionDuration * 1000, 'cubic-bezier(0.42, 0, 0.58, 1)');
+                        swiper.slideTo(newIndex, transitionDuration * 1000, 'linear');
                     }
                 },
-            });
-
-            // Swiper가 슬라이드를 변경할 때 호출될 이벤트 리스너
-            swiper.on('slideChange', () => {
-                const newIndex = swiper.activeIndex;
-
-                // ScrollTrigger의 progress를 해당 슬라이드에 맞게 업데이트
-                const progress = newIndex / (totalSlides - 1);
-                scrollTrigger.scroll(scrollTrigger.start + (scrollTrigger.end - scrollTrigger.start) * progress);
             });
         }
 
