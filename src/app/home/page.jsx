@@ -8,7 +8,7 @@ import { MainContainer } from './style';
 import PortfolioST from './components/portfoliost/PortfolioST';
 
 const HomePage = () => {
-    const { isPortfolioST } = useSelector((state) => state.sTR);
+    const { miniProjectST } = useSelector((state) => state.sTR);
 
     return (
         <>
@@ -16,7 +16,7 @@ const HomePage = () => {
                 <IntroSec />
                 <SubtitleBanner />
                 <PortfolioDisplaySec />
-                {isPortfolioST ? <PortfolioST /> : null}
+                {miniProjectST ? <PortfolioST /> : null}
             </MainContainer>
         </>
     );

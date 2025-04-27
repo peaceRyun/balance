@@ -30,10 +30,10 @@ const SubtitleBanner = () => {
                     pin: true,
                     scrub: 1,
                     onEnterBack: () => {
-                        dispatch(sTActions.setPortfolioST(false));
+                        dispatch(sTActions.setMiniProjectST(false));
                     },
                     onLeave: () => {
-                        dispatch(sTActions.setPortfolioST(true));
+                        dispatch(sTActions.setMiniProjectST(true));
                     },
                 },
             });

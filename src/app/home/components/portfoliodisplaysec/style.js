@@ -23,6 +23,10 @@ export const StyledSwiper = styled(Swiper)`
     height: 630px !important;
     overflow: hidden;
     border-radius: 10px;
+    opacity: 0;
+    &.on {
+        opacity: 1;
+    }
     .swiper-wrapper {
         display: flex;
         align-items: center;

@@ -1,15 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    isPortfolioST: false,
+    miniProjectST: false,
+    projectST: false,
 };
 
 const sTSlice = createSlice({
     name: 'screentransform',
     initialState,
     reducers: {
-        setPortfolioST: (state, actions) => {
-            state.isPortfolioST = actions.payload;
+        setMiniProjectST: (state, actions) => {
+            state.miniProjectST = actions.payload;
+        },
+        setProjectST: (state, actions) => {
+            state.projectST = actions.payload;
         },
     },
 });

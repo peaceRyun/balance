@@ -11,6 +11,7 @@ import { portfoliodata } from '@/app/api/data';
 import { sTActions } from '@/app/store/modules/sTSlice';
 import { useDispatch } from 'react-redux';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +19,7 @@ const PortfolioDisplaySec = () => {
     const swiperRef = useRef(null);
     const sectionRef = useRef(null);
     const dispatch = useDispatch();
+    const { projectST } = useSelector((state) => state.sTR);
 
     const handleMouseEnter = (event) => {
         event.currentTarget.style.transform = 'scale(1.04)';
@@ -36,7 +38,7 @@ const PortfolioDisplaySec = () => {
         if (swiperRef.current && sectionRef.current) {
             const swiper = swiperRef.current;
 
-            const transitionDuration = 0.8;
+            const transitionDuration = 0.3;
 
             // 스크롤 트리거 설정
             scrollTrigger = ScrollTrigger.create({
@@ -50,10 +52,16 @@ const PortfolioDisplaySec = () => {
                     ease: 'power2.inOut',
                 },
                 onEnter: () => {
-                    dispatch(sTActions.setPortfolioST(false));
+                    document.body.style.overflow = 'hidden';
+                    setTimeout(() => {
+                        dispatch(sTActions.setMiniProjectST(false));
+                        dispatch(sTActions.setProjectST(true));
+                        document.body.style.overflow = '';
+                    }, 3000);
                 },
                 onLeaveBack: () => {
-                    dispatch(sTActions.setPortfolioST(true));
+                    dispatch(sTActions.setProjectST(false));
+                    dispatch(sTActions.setMiniProjectST(true));
                 },
                 onUpdate: (self) => {
                     // 스크롤 위치에 따른 슬라이드 인덱스 계산
@@ -105,11 +113,12 @@ const PortfolioDisplaySec = () => {
                         PROJECTS
                     </StyledH4>
                 </DivWrap>
+
                 <StyledSwiper
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;
                     }}
-                    className='list'
+                    className={`${projectST ? 'on' : ''}`}
                     slidesPerView={'auto'}
                     centeredSlides={true} // 활성화된 슬라이드를 중앙에 배치
                     loop={false}
