@@ -158,7 +158,7 @@ export const StyledLi = styled.li`
 `;
 
 export const StyledSpan = styled.span`
-    font-family: var(--my-poppins-font);
+    font-family: var(--my-pretendard-font);
     font-weight: ${(props) => props.$fontWeight};
     font-size: ${(props) => props.$fontSize};
     color: ${(props) => props.$color};

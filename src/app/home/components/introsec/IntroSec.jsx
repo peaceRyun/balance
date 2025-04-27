@@ -1,6 +1,6 @@
 'use client';
 
-import { DivWrap, SecCont, StyledH3, StyledImg, StyledSpan } from '@/app/styles/globals';
+import { DivWrap, SecCont, StyledH3, StyledImg } from '@/app/styles/globals';
 import ScrollToExploreIcon from '@/app/ui/scrolltoexploreicon/ScrollToExploreIcon';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';

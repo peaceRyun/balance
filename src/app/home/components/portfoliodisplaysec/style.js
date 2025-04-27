@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-export const BoxDivWrap = styled.div`
+export const PDSDivWrap = styled.div`
     padding: ${(props) => props.$padding};
     margin: ${(props) => props.$margin};
     display: ${(props) => props.$display};
@@ -15,7 +15,6 @@ export const BoxDivWrap = styled.div`
     position: ${(props) => props.$position};
     border-radius: ${(props) => props.$borderRadius};
     bottom: ${(props) => props.$bottom};
-    color: ${(props) => props.$color};
 `;
 
 export const StyledSwiper = styled(Swiper)`
@@ -51,4 +50,29 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
     @media (max-width: 768px) {
         width: 200px !important;
     }
+`;
+
+export const ImgFilter = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: transparent;
+    opacity: 0;
+    ${(props) => props.$isHovering && `background: linear-gradient(to top, black, transparent); opacity: 1`}
+`;
+
+export const PDSStyledImg = styled.img`
+    object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition:
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    ${(props) => (props.$isHovering ? `transform: scale(1.04); cursor: pointer` : `transform: scale(1); cursor: auto`)}
 `;

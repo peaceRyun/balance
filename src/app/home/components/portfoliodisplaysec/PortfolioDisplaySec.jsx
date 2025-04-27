@@ -1,9 +1,9 @@
 'use client';
 
-import { DivWrap, SecCont, StyledH3, StyledH4, StyledImg, StyledP } from '@/app/styles/globals';
-import { BoxDivWrap, StyledSwiper, StyledSwiperSlide } from './style';
+import { DivWrap, SecCont, StyledH3, StyledSpan } from '@/app/styles/globals';
+import { ImgFilter, PDSDivWrap, PDSStyledImg, StyledSwiper, StyledSwiperSlide } from './style';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import 'swiper/css';
@@ -20,15 +20,14 @@ const PortfolioDisplaySec = () => {
     const sectionRef = useRef(null);
     const dispatch = useDispatch();
     const { projectST } = useSelector((state) => state.sTR);
+    const [HoveredItemId, setHoveredItemId] = useState(null);
 
-    const handleMouseEnter = (event) => {
-        event.currentTarget.style.transform = 'scale(1.04)';
-        event.currentTarget.style.cursor = 'pointer';
+    const handleMouseEnter = (id) => {
+        setHoveredItemId(id);
     };
 
-    const handleMouseLeave = (event) => {
-        event.currentTarget.style.transform = 'scale(1)';
-        event.currentTarget.style.cursor = 'auto';
+    const handleMouseLeave = () => {
+        setHoveredItemId(null);
     };
 
     useEffect(() => {
@@ -97,12 +96,9 @@ const PortfolioDisplaySec = () => {
                 $alignItems='flex-start'
             >
                 <DivWrap className='textBox' $width='100%' $margin='0 auto 80px' $color='#0f0d0d'>
-                    <StyledH3 $variant='titleMedium' $fontWeight='400'>
-                        성과 영역
-                    </StyledH3>
-                    <StyledH4 $variant='titleLarge' $fontWeight='700'>
+                    <StyledH3 $variant='titleLarge' $fontWeight='900'>
                         PROJECTS
-                    </StyledH4>
+                    </StyledH3>
                 </DivWrap>
 
                 <StyledSwiper
@@ -119,14 +115,40 @@ const PortfolioDisplaySec = () => {
                     {portfoliodata.map((item) => (
                         <StyledSwiperSlide key={item.id}>
                             <Link href={`/projects/${item.id}`}>
-                                <BoxDivWrap $width='100%' $height='100%' $position='relative' $borderRadius='10px'>
-                                    <StyledImg
+                                <PDSDivWrap
+                                    $width='100%'
+                                    $height='100%'
+                                    $position='relative'
+                                    $borderRadius='10px'
+                                    onMouseEnter={() => handleMouseEnter(item.id)}
+                                    onMouseLeave={handleMouseLeave}
+                                >
+                                    <ImgFilter $isHovering={HoveredItemId === item.id}>
+                                        <DivWrap
+                                            $position='absolute'
+                                            $bottom='0'
+                                            $display='flex'
+                                            $alignItems='end'
+                                            $justifyContent='space-between'
+                                            $width='100%'
+                                            $margin='auto 0 0'
+                                            $padding='40px'
+                                            $color='white'
+                                        >
+                                            <StyledSpan $fontSize='24px' $fontWeight='500'>
+                                                {item.title}
+                                            </StyledSpan>
+                                            <StyledSpan $fontSize='14px' $fontWeight='100'>
+                                                {item.thumbstartdate}
+                                            </StyledSpan>
+                                        </DivWrap>
+                                    </ImgFilter>
+                                    <PDSStyledImg
                                         src={item.src}
                                         alt={item.alt}
-                                        onMouseEnter={handleMouseEnter}
-                                        onMouseLeave={handleMouseLeave}
+                                        $isHovering={HoveredItemId === item.id}
                                     />
-                                </BoxDivWrap>
+                                </PDSDivWrap>
                             </Link>
                         </StyledSwiperSlide>
                     ))}
