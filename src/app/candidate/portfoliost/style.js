@@ -11,11 +11,9 @@ export const SecAniCont = styled.section`
 
 export const AniLi = styled.li`
     position: relative;
-    visibility: visible;
-    opacity: 1;
     width: 137px;
     height: 90px;
-    transform: matrix(1, 0, 0, 1, 0, 659);
+    transform: matrix(1, 0, 0, 1, 0, 800);
     overflow: hidden;
     margin: ${(props) => props.$margin};
 `;

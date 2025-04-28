@@ -29,12 +29,6 @@ const SubtitleBanner = () => {
                     end: '+=500px',
                     pin: true,
                     scrub: 1,
-                    onEnterBack: () => {
-                        dispatch(sTActions.setMiniProjectST(false));
-                    },
-                    onLeave: () => {
-                        dispatch(sTActions.setMiniProjectST(true));
-                    },
                 },
             });
 

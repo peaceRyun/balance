@@ -28,7 +28,7 @@ const PortfolioST = () => {
             scrollTrigger: {
                 trigger: section,
                 start: 'top top',
-                end: 'bottom bottom', // 200vh 스크롤 동안 애니메이션 진행
+                end: 'bottom bottom',
                 scrub: true, // 스크롤과 애니메이션 진행률 연동
             },
         });
@@ -43,7 +43,7 @@ const PortfolioST = () => {
                 {
                     width: 330, // 첫 번째 요소 목표 width
                     height: 630,
-                    y: 1056,
+                    y: 450,
                     ease: 'none',
                 },
                 0
@@ -56,8 +56,9 @@ const PortfolioST = () => {
                 {
                     width: 930, // 두 번째 요소 목표 width
                     height: 630,
-                    y: 1056,
+                    y: 450,
                     ease: 'none',
+                    margin: '0 4vw',
                 },
                 '>'
             ); // 첫 번째 애니메이션 끝난 직후 시작
@@ -69,7 +70,7 @@ const PortfolioST = () => {
                 {
                     width: 330, // 세 번째 요소 목표 width
                     height: 630,
-                    y: 1056,
+                    y: 450,
                     ease: 'none',
                 },
                 '>'
