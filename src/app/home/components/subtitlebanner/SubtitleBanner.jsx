@@ -13,7 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 const SubtitleBanner = () => {
     const pinWrapRef = useRef(null);
     const textObjectRef = useRef(null);
-    const dispatch = useDispatch();
 
     useEffect(() => {
         const pinWrap = pinWrapRef.current;
@@ -66,7 +65,7 @@ const SubtitleBanner = () => {
                 $top='0'
                 $innerBannerResponsive
             >
-                <div>
+                <div style={{ width: '100%' }}>
                     <WebkitSpan $fontWeight='900' className='webkitSpan' ref={textObjectRef} $color='transparent'>
                         "당신이 능력을 최대한 발휘해서 실행하는 데 <br />
                         주의 를 기울이고 있다면,
