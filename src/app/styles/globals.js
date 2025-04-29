@@ -31,10 +31,10 @@ const getVariantTitleStyles = (variant) => {
             letter-spacing: 1px;
             line-height: 150%;
             @media (max-width: 1280px) {
-                font-size: 40px;
+                font-size: 2.5rem;
             }
             @media (max-width: 768px) {
-                font-size: 28px;
+                font-size: 1.75rem;
             }
             `;
 

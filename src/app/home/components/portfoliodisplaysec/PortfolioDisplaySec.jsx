@@ -68,17 +68,17 @@ const PortfolioDisplaySec = () => {
     }, []);
 
     return (
-        <SecCont className='portfolio' $overFlow='hidden' ref={sectionRef}>
+        <SecCont className='portfolio' $overFlow='hidden' ref={sectionRef} $backgroundColor='white'>
             <h2 className='sr-only'>포트폴리오 섹션</h2>
             <DivWrap
-                $padding='120px 80px'
+                $padding='0px 80px 60px'
                 $height='100vh'
                 $display='flex'
                 $flexDirection='column'
                 $justifyContent='space-around'
                 $alignItems='flex-start'
             >
-                <DivWrap className='textBox' $width='100%' $margin='0 auto 80px' $color='#0f0d0d'>
+                <DivWrap className='textBox' $width='100%' $padding='60px 0 80px' $color='#0f0d0d'>
                     <StyledH3 $variant='titleLarge' $fontWeight='900'>
                         PROJECTS
                     </StyledH3>
@@ -93,6 +93,7 @@ const PortfolioDisplaySec = () => {
                     loop={false}
                     initialSlide={0}
                     watchSlidesProgress={true}
+                    spaceBetween={60}
                 >
                     {portfoliodata.map((item) => (
                         <StyledSwiperSlide key={item.id}>

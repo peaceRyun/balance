@@ -19,32 +19,29 @@ export const PDSDivWrap = styled.div`
 
 export const StyledSwiper = styled(Swiper)`
     width: 100% !important;
-    height: 630px !important;
+    height: 100% !important;
     overflow: hidden;
     border-radius: 10px;
     .swiper-wrapper {
         display: flex;
         align-items: center;
     }
-    .swiper-slide {
+    /* .swiper-slide {
         margin-right: 4vw;
-    }
-    @media (max-width: 1280px) {
+    } */
+    /* @media (max-width: 1280px) {
         height: 413px !important;
     }
     @media (max-width: 768px) {
         height: 135px !important;
-    }
+    } */
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
-    width: 930px !important;
+    width: 60% !important;
     height: 100% !important;
     @media (max-width: 1280px) {
-        width: 610px !important;
-    }
-    @media (max-width: 768px) {
-        width: 200px !important;
+        width: 100% !important;
     }
 `;
 

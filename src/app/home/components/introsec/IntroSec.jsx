@@ -17,7 +17,7 @@ const IntroSec = () => {
 
     return (
         <>
-            <div ref={ref} style={{ height: '90vh', position: 'relative' }}>
+            <div ref={ref} style={{ height: '100vh', position: 'relative' }}>
                 <motion.div
                     style={{
                         y: translateY,
