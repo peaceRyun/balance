@@ -1,5 +1,4 @@
-import { Chevron } from './style';
-import styled from 'styled-components';
+import { Chevron, IconWrap } from './style';
 
 const ScrollToExploreIcon = ({ position, bottom, left, transform }) => {
     return (
@@ -14,14 +13,3 @@ const ScrollToExploreIcon = ({ position, bottom, left, transform }) => {
 };
 
 export default ScrollToExploreIcon;
-
-const IconWrap = styled.div`
-    position: ${(props) => props.$position};
-    bottom: ${(props) => props.$bottom};
-    left: ${(props) => props.$left};
-    transform: ${(props) => props.$transform};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-`;

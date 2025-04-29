@@ -56,7 +56,7 @@ const IntroSec = () => {
                                 $alignItems='center'
                                 $justifyContent='center'
                                 $gap='1vh'
-                                $padding='5vh 0 10vh'
+                                $padding='0 0 10vh'
                                 $position='relative'
                             >
                                 <IntroStyledSpan

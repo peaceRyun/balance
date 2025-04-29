@@ -80,10 +80,10 @@ const introImgResponsive = () => {
 const innerResponsive = () => {
     return `
         @media (max-width: 1280px) {
-            padding: 70px 20px 15px;
+            padding: 6.5vh 1.6vw 1.4vh;
         }
         @media (max-width: 768px) {
-            padding: 50px 30px 0px;
+            padding: 7.7vh 3.9vw 0;
         }
     `;
 };

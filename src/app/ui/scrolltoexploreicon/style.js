@@ -1,43 +1,38 @@
 import styled, { keyframes } from 'styled-components';
 
-const base = '0.6rem';
-
-const tabBase = '0.4rem';
-
-const mobileBase = '0.2rem';
+const baseVh = 0.5;
 
 const moveChevron = keyframes`
-  25% {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, ${baseVh * 0}vh);
+  }
+   25% {
     opacity: 1;
   }
   33.3% {
     opacity: 1;
-    transform: translateY(${parseFloat(base) * 3.8}rem);
+    transform: translate(-50%, ${baseVh * 3.8}vh) ;
   }
   66.6% {
     opacity: 1;
-    transform: translateY(${parseFloat(base) * 5.2}rem);
+    transform: translate(-50%, ${baseVh * 5.2}vh) ;
   }
   100% {
     opacity: 0;
-    transform: translateY(${parseFloat(base) * 8}rem) scale(0.5);
+    transform: translate(-50%, ${baseVh * 8}vh) scale(0.5);
   }
 `;
 
 export const Chevron = styled.div`
     position: absolute;
-    width: calc(${base} * 3.5);
-    height: calc(${base} * 0.8);
-    @media (max-width: 1280px) {
-        width: calc(${tabBase} * 3.5);
-        height: calc(${tabBase} * 0.8);
-    }
-    @media (max-width: 768px) {
-        width: calc(${mobileBase} * 3.5);
-        height: calc(${mobileBase} * 0.8);
-    }
+    top: 0;
+    left: 50%;
+
+    width: ${baseVh * 3.5}vh;
+    height: ${baseVh * 0.8}vh;
+
     opacity: 0;
-    transform: scale(0.3);
     animation: ${moveChevron} 3s ease-out infinite;
 
     &:first-child {
@@ -68,4 +63,14 @@ export const Chevron = styled.div`
         width: 50%;
         transform: skewY(-30deg);
     }
+`;
+
+export const IconWrap = styled.div`
+    position: ${(props) => props.$position};
+    bottom: ${(props) => props.$bottom};
+    left: ${(props) => props.$left};
+    transform: ${(props) => props.$transform};
+
+    width: ${baseVh * 10}vh;
+    height: ${baseVh * 12}vh;
 `;
