@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const WebkitSpan = styled.span`
     font-family: var(--my-poppins-font);
-    font-size: 60px;
+    font-size: clamp(40px, 5vh, 60px);
     @media (max-width: 1280px) {
-        font-size: 44px;
+        font-size: clamp(38px, 4vh, 44px);
     }
     @media (max-width: 768px) {
-        font-size: 32px;
+        font-size: clamp(32px, 3vh, 40px);
     }
     font-weight: ${(props) => props.$fontWeight};
     color: ${(props) => props.$color};
