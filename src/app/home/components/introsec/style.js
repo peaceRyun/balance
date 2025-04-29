@@ -7,7 +7,7 @@ export const StyledLabel = styled.div`
     border: 2px solid rgb(52, 53, 57);
     border-radius: 250px;
     padding: 10px 25px;
-    font-size: 20px;
+    font-size: clamp(8px, 2vh, 20px);
     width: min-content;
     white-space: nowrap;
     @media (max-width: 1280px) {

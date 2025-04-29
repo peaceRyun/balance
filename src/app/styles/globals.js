@@ -5,16 +5,16 @@ const getVariantTitleStyles = (variant) => {
         case 'intro':
             return `
                 font-family: var(--my-poppins-font);
-                font-size: 180px;
+                font-size: clamp(73px, 16vh, 180px);
                 text-align: left;
                 line-height: 0.8em;
                 letter-spacing: -0.09em;
                 color: rgb(52, 53, 57);
                 @media (max-width: 1280px) {
-                    font-size: 136px;
+                    font-size: clamp(73px, 16vh, 136px);
                 }
                 @media (max-width: 768px) {
-                    font-size: 73px;
+                    font-size: clamp(40px, 16vh, 73px);
                 }
       `;
         case 'subtitle':

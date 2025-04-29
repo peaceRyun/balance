@@ -91,7 +91,7 @@ const PortfolioDisplaySec = () => {
                     slidesPerView={'auto'}
                     centeredSlides={true} // 활성화된 슬라이드를 중앙에 배치
                     loop={false}
-                    initialSlide={1}
+                    initialSlide={0}
                     watchSlidesProgress={true}
                     spaceBetween={60}
                 >

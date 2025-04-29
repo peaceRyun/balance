@@ -25,26 +25,26 @@ const IntroSec = () => {
                 >
                     <SecCont>
                         <h2 className='sr-only'>제목</h2>
-                        <DivWrap $padding='120px 50px 40px' $innerResponsive>
-                            <DivWrap $padding='75px 0' $display='flex' $flexDirection='column' $gap='4px'>
+                        <DivWrap $padding='11vh 2.6vw 3.7vh' $innerResponsive>
+                            <DivWrap $padding='7.5vh 0' $display='flex' $flexDirection='column' $gap='0.4vh'>
                                 <StyledH3 $variant='intro' $fontWeight='700'>
                                     Balancing
                                 </StyledH3>
                                 <StyledH3 $variant='intro' $fontWeight='100'>
                                     Learning
                                 </StyledH3>
-                                <DivWrap $display='flex' $gap='10px'>
+                                <DivWrap $display='flex' $gap='1vw'>
                                     <StyledH3 $variant='intro' $fontWeight='700'>
                                         and
                                     </StyledH3>
-                                    <DivWrap $width='300px' $height='160px' $introImgResponsive>
+                                    <DivWrap $width='15.6vw' $height='14.8vh' $introImgResponsive>
                                         <StyledImg src='./home/intro/seesaw-unscreen.gif'></StyledImg>
                                     </DivWrap>
                                 </DivWrap>
                                 <StyledH3 $variant='intro' $fontWeight='100'>
                                     Performance
                                 </StyledH3>
-                                <DivWrap $display='flex' $gap='15px' $padding='30px 0 0' $introLabelResponsive>
+                                <DivWrap $display='flex' $gap='1.5vw' $padding='3vh 0 0' $introLabelResponsive>
                                     <StyledLabel>Web Publisher</StyledLabel>
                                     <StyledLabel>FrontEnd Developer</StyledLabel>
                                 </DivWrap>
@@ -55,13 +55,23 @@ const IntroSec = () => {
                                 $flexDirection='column'
                                 $alignItems='center'
                                 $justifyContent='center'
-                                $gap='10px'
-                                $padding='5% 0 100px'
+                                $gap='1vh'
+                                $padding='5vh 0 10vh'
+                                $position='relative'
                             >
-                                <IntroStyledSpan $fontWeight='700' $fontSize='20px' $color='#2c3e50'>
+                                <IntroStyledSpan
+                                    $fontWeight='700'
+                                    $fontSize='clamp(12px, 1.5vw, 20px)'
+                                    $color='#2c3e50'
+                                >
                                     스크롤로 탐색하기
                                 </IntroStyledSpan>
-                                <ScrollToExploreIcon />
+                                <ScrollToExploreIcon
+                                    position='absolute'
+                                    bottom='2vh'
+                                    left='50%'
+                                    transform='translateX(-50%)'
+                                />
                             </DivWrap>
                         </DivWrap>
                     </SecCont>
