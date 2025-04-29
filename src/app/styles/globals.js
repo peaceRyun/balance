@@ -5,7 +5,7 @@ const getVariantTitleStyles = (variant) => {
         case 'intro':
             return `
                 font-family: var(--my-poppins-font);
-                font-size: clamp(73px, 16vh, 180px);
+                font-size: clamp(90px, 15vh, 180px);
                 text-align: left;
                 line-height: 0.8em;
                 letter-spacing: -0.09em;
@@ -67,8 +67,8 @@ const introLabelResponsive = () => {
 const introImgResponsive = () => {
     return `
         @media (max-width: 1280px) {
-            width: 204px;
-            height: 108.8px;
+            width: clamp(100px, 15vh,204px);
+            height: clamp(58.41px, 10vh, 108.8px);
         }
         @media (max-width: 768px) {
             width: 109.5px;
@@ -80,10 +80,10 @@ const introImgResponsive = () => {
 const innerResponsive = () => {
     return `
         @media (max-width: 1280px) {
-            padding: 6.5vh 1.6vw 1.4vh;
+            padding: 6.5vh 30px 1.4vh;
         }
         @media (max-width: 768px) {
-            padding: 7.7vh 3.9vw 0;
+            padding: 7.7vh 20px 0;
         }
     `;
 };
@@ -91,10 +91,10 @@ const innerResponsive = () => {
 const innerBannerResponsive = () => {
     return `
         @media (max-width: 1280px) {
-            padding: 0px 20px 0px;
+            padding: 0px 30px 0px;
         }
         @media (max-width: 768px) {
-            padding: 0px 30px 0px;
+            padding: 0px 20px 0px;
         }
     `;
 };

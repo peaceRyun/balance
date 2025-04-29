@@ -25,7 +25,7 @@ const IntroSec = () => {
                 >
                     <SecCont>
                         <h2 className='sr-only'>제목</h2>
-                        <DivWrap $padding='11vh 2.6vw 3.7vh' $innerResponsive>
+                        <DivWrap $padding='11vh 50px 3.7vh' $innerResponsive>
                             <DivWrap $padding='7.5vh 0' $display='flex' $flexDirection='column' $gap='0.4vh'>
                                 <StyledH3 $variant='intro' $fontWeight='700'>
                                     Balancing
@@ -37,7 +37,11 @@ const IntroSec = () => {
                                     <StyledH3 $variant='intro' $fontWeight='700'>
                                         and
                                     </StyledH3>
-                                    <DivWrap $width='15.6vw' $height='14.8vh' $introImgResponsive>
+                                    <DivWrap
+                                        $width='clamp(150px,30vh,250px)'
+                                        $height='clamp(72px, 15vh,144px)'
+                                        $introImgResponsive
+                                    >
                                         <StyledImg src='./home/intro/seesaw-unscreen.gif'></StyledImg>
                                     </DivWrap>
                                 </DivWrap>
