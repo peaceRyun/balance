@@ -75,10 +75,10 @@ const PortfolioDisplaySec = () => {
                 $height='100vh'
                 $display='flex'
                 $flexDirection='column'
-                $justifyContent='space-around'
                 $alignItems='flex-start'
+                $gap='100px'
             >
-                <DivWrap className='textBox' $width='100%' $padding='60px 0 80px' $color='#0f0d0d'>
+                <DivWrap className='textBox' $width='100%' $padding='120px 0 80px' $color='#0f0d0d'>
                     <StyledH3 $variant='titleLarge' $fontWeight='900'>
                         PROJECTS
                     </StyledH3>
@@ -91,7 +91,7 @@ const PortfolioDisplaySec = () => {
                     slidesPerView={'auto'}
                     centeredSlides={true} // 활성화된 슬라이드를 중앙에 배치
                     loop={false}
-                    initialSlide={0}
+                    initialSlide={1}
                     watchSlidesProgress={true}
                     spaceBetween={60}
                 >
@@ -100,7 +100,7 @@ const PortfolioDisplaySec = () => {
                             <Link href={`/projects/${item.id}`}>
                                 <PDSDivWrap
                                     $width='100%'
-                                    $height='100%'
+                                    $height='auto'
                                     $position='relative'
                                     $borderRadius='10px'
                                     onMouseEnter={() => handleMouseEnter(item.id)}

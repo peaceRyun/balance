@@ -15,6 +15,7 @@ export const PDSDivWrap = styled.div`
     position: ${(props) => props.$position};
     border-radius: ${(props) => props.$borderRadius};
     bottom: ${(props) => props.$bottom};
+    aspect-ratio: 16 / 9;
 `;
 
 export const StyledSwiper = styled(Swiper)`
@@ -22,27 +23,22 @@ export const StyledSwiper = styled(Swiper)`
     height: 100% !important;
     overflow: hidden;
     border-radius: 10px;
-    .swiper-wrapper {
-        display: flex;
-        align-items: center;
-    }
-    /* .swiper-slide {
-        margin-right: 4vw;
-    } */
-    /* @media (max-width: 1280px) {
-        height: 413px !important;
-    }
-    @media (max-width: 768px) {
-        height: 135px !important;
-    } */
+    display: flex;
+    padding: 0 0 180px;
+    align-items: center;
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
-    width: 60% !important;
-    height: 100% !important;
+    width: 100% !important;
+    max-width: 900px;
     @media (max-width: 1280px) {
-        width: 100% !important;
+        max-width: 768px;
     }
+    @media (max-width: 768px) {
+        max-width: 390px;
+    }
+
+    height: 100% !important;
 `;
 
 export const ImgFilter = styled.div`
