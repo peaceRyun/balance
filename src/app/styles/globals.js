@@ -128,6 +128,7 @@ export const DivWrap = styled.div`
     display: ${(props) => props.$display};
     gap: ${(props) => props.$gap};
     flex-direction: ${(props) => props.$flexDirection};
+    flex-shrink: ${(props) => props.$flexShrink};
     align-items: ${(props) => props.$alignItems};
     justify-content: ${(props) => props.$justifyContent};
     width: ${(props) => props.$width};
@@ -137,10 +138,12 @@ export const DivWrap = styled.div`
     border-radius: ${(props) => props.$borderRadius};
     bottom: ${(props) => props.$bottom};
     color: ${(props) => props.$color};
+    z-index: ${(props) => props.$zIndex};
+    flex: ${(props) => props.$flex};
     ${(props) => (props.$introLabelResponsive ? introLabelResponsive() : null)}
     ${(props) => (props.$introImgResponsive ? introImgResponsive() : null)}
-    ${(props) => (props.$innerResponsive ? innerResponsive() : null)}
-    ${(props) => (props.$innerBannerResponsive ? innerBannerResponsive() : null)}
+        ${(props) => (props.$innerResponsive ? innerResponsive() : null)}
+        ${(props) => (props.$innerBannerResponsive ? innerBannerResponsive() : null)};
 `;
 
 export const UlWrap = styled.ul`
@@ -175,9 +178,14 @@ export const StyledImg = styled.img`
     display: block;
     width: 100%;
     height: 100%;
+    position: ${(props) => props.$position};
+    top: ${(props) => props.$top};
+    left: ${(props) => props.$left};
+    z-index: ${(props) => props.$zIndex};
     transition:
         transform 0.3s ease-in-out,
         opacity 0.3s ease-in-out;
+    filter: ${(props) => props.$filter};
 `;
 
 export const StyledH2 = styled.h2`
