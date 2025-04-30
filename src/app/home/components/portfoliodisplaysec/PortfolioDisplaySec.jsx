@@ -15,15 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 const PortfolioDisplaySec = () => {
     const swiperRef = useRef(null);
     const sectionRef = useRef(null);
-    const [HoveredItemId, setHoveredItemId] = useState(null);
-
-    const handleMouseEnter = (id) => {
-        setHoveredItemId(id);
-    };
-
-    const handleMouseLeave = () => {
-        setHoveredItemId(null);
-    };
 
     useEffect(() => {
         let scrollTrigger;
@@ -98,15 +89,8 @@ const PortfolioDisplaySec = () => {
                     {portfoliodata.map((item) => (
                         <StyledSwiperSlide key={item.id}>
                             <Link href={`/projects/${item.id}`}>
-                                <PDSDivWrap
-                                    $width='100%'
-                                    $height='auto'
-                                    $position='relative'
-                                    $borderRadius='10px'
-                                    onMouseEnter={() => handleMouseEnter(item.id)}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <ImgFilter $isHovering={HoveredItemId === item.id}>
+                                <PDSDivWrap $width='100%' $height='auto' $position='relative' $borderRadius='10px'>
+                                    <ImgFilter>
                                         <DivWrap
                                             $position='absolute'
                                             $bottom='0'
@@ -126,11 +110,7 @@ const PortfolioDisplaySec = () => {
                                             </StyledSpan>
                                         </DivWrap>
                                     </ImgFilter>
-                                    <PDSStyledImg
-                                        src={item.src}
-                                        alt={item.alt}
-                                        $isHovering={HoveredItemId === item.id}
-                                    />
+                                    <PDSStyledImg src={item.src} alt={item.alt} />
                                 </PDSDivWrap>
                             </Link>
                         </StyledSwiperSlide>

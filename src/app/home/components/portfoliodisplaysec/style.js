@@ -52,7 +52,12 @@ export const ImgFilter = styled.div`
     z-index: 2;
     background: transparent;
     opacity: 0;
-    ${(props) => props.$isHovering && `background: linear-gradient(to top, black, transparent); opacity: 1`}
+    transition: opacity 0.3s ease-in-out;
+
+    ${PDSDivWrap}:hover & {
+        background: linear-gradient(to top, black, transparent);
+        opacity: 1;
+    }
 `;
 
 export const PDSStyledImg = styled.img`
@@ -63,5 +68,8 @@ export const PDSStyledImg = styled.img`
     transition:
         transform 0.3s ease-in-out,
         opacity 0.3s ease-in-out;
-    ${(props) => (props.$isHovering ? `transform: scale(1.04); cursor: pointer` : `transform: scale(1); cursor: auto`)}
+    ${PDSDivWrap}:hover & {
+        transform: scale(1.04);
+        cursor: pointer;
+    }
 `;
