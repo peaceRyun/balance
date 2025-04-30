@@ -1,9 +1,18 @@
 'use client';
 
-import { DivWrap, SecCont, StyledH3, StyledSpan } from '@/app/styles/globals';
-import { ImgFilter, PDSDivWrap, PDSStyledImg, StyledSwiper, StyledSwiperSlide } from './style';
+import { DivWrap, SecCont, StyledH3 } from '@/app/styles/globals';
+import {
+    ImgFilter,
+    PDSCont,
+    PDSDateStyledSpan,
+    PDSDivWrap,
+    PDSStyledImg,
+    PDSTitleStyledSpan,
+    StyledSwiper,
+    StyledSwiperSlide,
+} from './style';
 import gsap from 'gsap';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 import 'swiper/css';
@@ -61,15 +70,14 @@ const PortfolioDisplaySec = () => {
     return (
         <SecCont className='portfolio' $overFlow='hidden' ref={sectionRef} $backgroundColor='white'>
             <h2 className='sr-only'>포트폴리오 섹션</h2>
-            <DivWrap
+            <PDSCont
                 $padding='0px 80px 60px'
                 $height='100vh'
                 $display='flex'
                 $flexDirection='column'
                 $alignItems='flex-start'
-                $gap='100px'
             >
-                <DivWrap className='textBox' $width='100%' $padding='120px 0 80px' $color='#0f0d0d'>
+                <DivWrap className='textBox' $width='100%' $padding='15vh 0 10vh;' $color='#0f0d0d'>
                     <StyledH3 $variant='titleLarge' $fontWeight='900'>
                         PROJECTS
                     </StyledH3>
@@ -102,12 +110,10 @@ const PortfolioDisplaySec = () => {
                                             $padding='40px'
                                             $color='white'
                                         >
-                                            <StyledSpan $fontSize='24px' $fontWeight='500'>
-                                                {item.title}
-                                            </StyledSpan>
-                                            <StyledSpan $fontSize='14px' $fontWeight='100'>
+                                            <PDSTitleStyledSpan $fontWeight='500'>{item.title}</PDSTitleStyledSpan>
+                                            <PDSDateStyledSpan $fontWeight='100'>
                                                 {item.thumbstartdate}
-                                            </StyledSpan>
+                                            </PDSDateStyledSpan>
                                         </DivWrap>
                                     </ImgFilter>
                                     <PDSStyledImg src={item.src} alt={item.alt} />
@@ -116,7 +122,7 @@ const PortfolioDisplaySec = () => {
                         </StyledSwiperSlide>
                     ))}
                 </StyledSwiper>
-            </DivWrap>
+            </PDSCont>
         </SecCont>
     );
 };

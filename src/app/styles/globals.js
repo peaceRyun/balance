@@ -27,7 +27,7 @@ const getVariantTitleStyles = (variant) => {
         case 'titleLarge':
             return `
             font-family: var(--my-pretendard-font);
-            font-size: 40px;
+            font-size: 2.5rem;
             letter-spacing: 1px;
             line-height: 150%;
             @media (max-width: 1280px) {
@@ -36,6 +36,12 @@ const getVariantTitleStyles = (variant) => {
             @media (max-width: 768px) {
                 font-size: 1.75rem;
             }
+            @media (max-height: 800px) {
+                        font-size: 2rem; 
+                    }
+            @media (max-height: 600px) {
+                        font-size: 1.5rem; 
+                    }
             `;
 
         case 'titleMedium':
