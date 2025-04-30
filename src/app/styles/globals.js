@@ -26,7 +26,7 @@ const getVariantTitleStyles = (variant) => {
 
         case 'titleLarge':
             return `
-            font-family: var(--my-pretendard-font);
+            font-family: var(--my-poppins-font);
             font-size: 2.5rem;
             letter-spacing: 1px;
             line-height: 150%;

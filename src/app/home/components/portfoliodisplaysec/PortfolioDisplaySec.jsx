@@ -78,7 +78,7 @@ const PortfolioDisplaySec = () => {
                 $alignItems='flex-start'
             >
                 <DivWrap className='textBox' $width='100%' $padding='15vh 0 10vh;' $color='#0f0d0d'>
-                    <StyledH3 $variant='titleLarge' $fontWeight='900'>
+                    <StyledH3 $variant='titleLarge' $fontWeight='700'>
                         PROJECTS
                     </StyledH3>
                 </DivWrap>
