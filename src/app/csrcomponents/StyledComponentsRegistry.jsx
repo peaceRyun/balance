@@ -1,0 +1,23 @@
+'use client'; 
+
+import React, { useState } from 'react';
+import { useServerInsertedHTML } from 'next/navigation';
+import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+
+function StyledComponentsRegistry({ children }) {
+  const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet());
+
+  useServerInsertedHTML(() => {
+    const styles = styledComponentsStyleSheet.getStyleElement();
+    styledComponentsStyleSheet.instance.clearTag(); // 스타일을 삽입한 후 인스턴스를 클리어합니다.
+    return <>{styles}</>;
+  });
+
+  return (
+    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
+      {children}
+    </StyleSheetManager>
+  );
+}
+
+export default StyledComponentsRegistry;

@@ -57,7 +57,7 @@ const SubtitleBanner = () => {
                 $display='flex'
                 $alignItems='center'
                 $justifyContent='center'
-                $lineHeight='1.2'
+                $lineHeight='1.5'
                 className='textBox'
                 $padding='0 50px 0'
                 ref={pinWrapRef}
@@ -67,8 +67,7 @@ const SubtitleBanner = () => {
             >
                 <div style={{ width: '100%' }}>
                     <WebkitSpan $fontWeight='900' className='webkitSpan' ref={textObjectRef} $color='transparent'>
-                        "당신이 능력을 최대한 발휘해서 실행하는 데 <br />
-                        주의 를 기울이고 있다면,
+                        "당신이 능력을 최대한 발휘해서 실행하는 데 주의 를 기울이고 있다면,
                         <br /> 당신은 <HighlightedKeyword className='highlight'>성과 영역</HighlightedKeyword>에 있는
                         것이다."
                     </WebkitSpan>
