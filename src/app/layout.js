@@ -23,7 +23,7 @@ const poppins = Poppins({
 
 export default function RootLayout({ children }) {
     return (
-        <html lang='ko' className={`${poppins.className} ${pretendard.className}`}>
+        <html lang='ko' className={`${poppins.className} ${pretendard.className}`} suppressHydrationWarning>
             <head>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0' />
             </head>
